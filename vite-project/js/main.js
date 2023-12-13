@@ -9,11 +9,13 @@ async function getData(URL){
         if(response.status != 200) {
             console.log("works")
         }
-        console.log(response)
         const data = await response.json();
         console.log(data)
+        document.querySelector("h1").textContent=data.docs
     } catch (error) {
         console.log("No work");
     }
 }
 getData(URL);
+
+
