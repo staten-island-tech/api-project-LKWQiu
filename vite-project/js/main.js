@@ -11,11 +11,19 @@ async function getData(URL){
         }
         const data = await response.json();
         console.log(data)
-        document.querySelector("h1").textContent=data.docs
+        const object = document.querySelector("h1").textContent=data.docs
     } catch (error) {
         console.log("No work");
     }
 }
 getData(URL);
 
+function BookPrint(book){
+    const BookCard = `
+    <div class="BookCard">
+        <h1>Name: ${book.title}</h1>
+    </div>
+    `;
+    document.getElementById("app").insertAdjacentHTML("beforeend", BookCard);
+};
 
