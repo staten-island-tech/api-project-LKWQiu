@@ -1,5 +1,9 @@
 import '../css/style.css'
 
+const DomSelectors = {
+    document.getElementById
+}
+
 const authorname = 'dickens'
 const URL = `https://openlibrary.org/search.json?author=${authorname}&sort=new`
 
@@ -12,11 +16,10 @@ async function getData(URL){
         const data = await response.json();
         console.log(data)
         data.forEach(data => {
-            BookPrint(data)
+            BookPrint(data.docs)
         });
         const object = document.querySelector("h1").textContent=data.docs
-        const objecter = object.title
-        console.log(objecter)
+
     } catch (error) {
         console.log("No work");
     }
