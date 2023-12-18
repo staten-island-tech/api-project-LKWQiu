@@ -1,8 +1,8 @@
 import '../css/style.css'
 
-const DomSelectors = {
-    document.getElementById
-}
+const DomSelectors = [
+    document.getElementById("apps"),
+]
 
 const authorname = 'dickens'
 const URL = `https://openlibrary.org/search.json?author=${authorname}&sort=new`
