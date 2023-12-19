@@ -1,7 +1,7 @@
 import '../css/style.css'
 
 const DomSelectors = [
-    document.getElementById("apps"),
+    document.getElementById("app"),
 ]
 
 const authorname = 'dickens'
@@ -15,10 +15,10 @@ async function getData(URL){
         }
         const data = await response.json();
         console.log(data)
-        data.forEach(data => {
-            BookPrint(data.docs)
+
+        data.docs.forEach(data => {
+        BookPrint(data)    
         });
-        const object = document.querySelector("h1").textContent=data.docs
 
     } catch (error) {
         console.log("No work");
@@ -29,7 +29,11 @@ getData(URL);
 function BookPrint(book){
     const BookCard = `
     <div class="BookCards">
-        <p>Name: ${book.title}</p>
+        <p>Novel: ${book.title}</p>
+        <p>Author: ${book.author_name}</p>
+        <p>Publish Date: ${book.publish_date}</p>
+
+
     </div>
     `;
     document.getElementById("app").insertAdjacentHTML("beforeend", BookCard);
