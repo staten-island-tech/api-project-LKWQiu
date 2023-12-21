@@ -31,6 +31,7 @@ DomSelectors.form1.addEventListener("submit", function(event){
             <p>Publish Date: ${book.publish_date}</p>
         </div>`;
         document.getElementById("app").insertAdjacentHTML("beforeend", BookCard);
+        // div in a div = wtv
     };
     
     async function getData(URL){
