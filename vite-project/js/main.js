@@ -17,6 +17,12 @@ DomSelectors.form1.addEventListener("submit", function(event){
 
     console.log("duhrrr")
 
+    function RemoveCard(event){
+        if(event.target.classList.contains("remove")){
+            event.target.all(".Novel").remove()
+        }
+    }
+
     function BookPrint(book){
         const BookCard = `
         <div class="BookCards">
@@ -46,4 +52,6 @@ DomSelectors.form1.addEventListener("submit", function(event){
     };
     
     getData(URL);
+
+    RemoveCard()
 });

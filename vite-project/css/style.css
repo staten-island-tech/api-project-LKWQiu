@@ -121,5 +121,6 @@ button:focus-visible {
   align-items: center;
 }
 .form1{
-  direction: fixed;
+  width: 100%;
+  height: 100px;
 }
