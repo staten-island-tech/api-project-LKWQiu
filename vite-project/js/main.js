@@ -4,6 +4,7 @@ const DomSelectors = {
     apps : document.getElementById("app"),
     authInput: document.getElementById("AuthInput"),
     submit: document.getElementById("submit"),
+    remove: document.getElementById("remove"),
     form1 : document.getElementById("form1"),
 };
 
@@ -17,11 +18,10 @@ DomSelectors.form1.addEventListener("submit", function(event){
 
     console.log("duhrrr")
 
-    function RemoveCard(event){
-        if(event.target.classList.contains("remove")){
-            event.target.all(".Novel").remove()
-        }
-    }
+    function clearParent() {
+        DomSelectors.apps.innerHTML = "";
+    };
+    clearParent()
 
     function BookPrint(book){
         const BookCard = `
@@ -29,6 +29,10 @@ DomSelectors.form1.addEventListener("submit", function(event){
             <p>Novel: ${book.title}</p>
             <p>Author: ${book.author_name}</p>
             <p>Publish Date: ${book.publish_date}</p>
+            <a href="https://openlibrary.org/${book.key}" target="_blank">
+                ${src ="https://cdn.pixabay.com/photo/2022/05/01/23/07/call-to-action-more-info-button-7168612_1280.png"}
+                //broken
+            </a>  
         </div>`;
         document.getElementById("app").insertAdjacentHTML("beforeend", BookCard);
         // div in a div = wtv
