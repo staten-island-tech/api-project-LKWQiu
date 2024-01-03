@@ -44,8 +44,8 @@ DomSelectors.form1.addEventListener("submit", function(event){
             const data = await response.json();
             console.log(data)
     
-            data.docs.forEach(data => {
-            BookPrint(data)    
+            data.docs.forEach(data => {   
+            BookPrint(data)
             });
     
         } catch (error) {
