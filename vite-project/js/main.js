@@ -29,7 +29,7 @@ DomSelectors.form1.addEventListener("submit", function(event){
             <p>Novel: ${book.title}</p>
             <p>Author: ${book.author_name}</p>
             <p>Publish Date: ${book.publish_date}</p>
-            <a href="https://openlibrary.org/${book.key}" target="_blank">Click</a>  
+            <a href="https://openlibrary.org/${book.key}" target="_blank">Read More</a>  
         </div>`;
         document.getElementById("app").insertAdjacentHTML("beforeend", BookCard);
         // div in a div = wtv
@@ -54,6 +54,4 @@ DomSelectors.form1.addEventListener("submit", function(event){
     };
     
     getData(URL);
-
-    RemoveCard()
 });
