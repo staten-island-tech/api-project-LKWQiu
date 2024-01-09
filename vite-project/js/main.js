@@ -8,6 +8,39 @@ const DomSelectors = {
     form1 : document.getElementById("form1"),
 };
 
+const URL = `https://openlibrary.org/search.json?author=n/a&sort=new`
+
+async function getData(URL){
+    try {
+        const response = await fetch(URL);
+        if(response.status != 200) {
+            console.log("works")
+        }
+        const data = await response.json();
+        console.log(data)
+
+        data.docs.forEach(data => {
+        BookPrint(data)    
+        });
+
+    } catch (error) {
+        console.log("No work");
+    }
+};
+
+getData(URL);
+
+function BookPrint(book){
+    const BookCard = `
+    <div class="BookCards">
+        <p>Novel: ${book.title}</p>
+        <p>Author: ${book.author_name}</p>
+        <p>Publish Date: ${book.publish_date}</p>
+        <a href="https://openlibrary.org/${book.key}" target="_blank">Read More</a>  
+    </div>`;
+    document.getElementById("app").insertAdjacentHTML("beforeend", BookCard);
+    // div in a div = wtv
+};
 
 DomSelectors.form1.addEventListener("submit", function(event){
     event.preventDefault();
@@ -23,17 +56,6 @@ DomSelectors.form1.addEventListener("submit", function(event){
     };
     clearParent()
 
-    function BookPrint(book){
-        const BookCard = `
-        <div class="BookCards">
-            <p>Novel: ${book.title}</p>
-            <p>Author: ${book.author_name}</p>
-            <p>Publish Date: ${book.publish_date}</p>
-            <a href="https://openlibrary.org/${book.key}" target="_blank">Read More</a>  
-        </div>`;
-        document.getElementById("app").insertAdjacentHTML("beforeend", BookCard);
-        // div in a div = wtv
-    };
     
     async function getData(URL){
         try {
@@ -55,3 +77,5 @@ DomSelectors.form1.addEventListener("submit", function(event){
     
     getData(URL);
 });
+
+
