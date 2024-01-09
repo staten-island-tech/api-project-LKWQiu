@@ -33,7 +33,7 @@ getData(URL);
 function BookPrint(book){
     const BookCard = `
     <div class="BookCards">
-        <p>Novel: ${book.title}</p>
+        <h3>Novel: ${book.title}</h3>
         <p>Author: ${book.author_name}</p>
         <p>Publish Date: ${book.publish_date}</p>
         <a href="https://openlibrary.org/${book.key}" target="_blank">Read More</a>  
